@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     loadFeed();
                 } else {
                     Log.e(LOG_TAG, "unsuccessful login");
-                    Toast.makeText(MainActivity.this, "Unsuccessful registration " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Unsuccessful login " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });

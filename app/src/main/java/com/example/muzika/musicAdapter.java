@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -43,6 +45,7 @@ public class musicAdapter extends RecyclerView.Adapter<musicAdapter.ViewHolder> 
         this.musicDataAll = musicData;
         this.musicDataFiltered = musicData;
         this.ncontext = context;
+
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
     }
@@ -102,6 +105,7 @@ public class musicAdapter extends RecyclerView.Adapter<musicAdapter.ViewHolder> 
         private TextView musicName;
         private TextView desc;
         private TextView likes;
+        private Button listenbutton;
         private ImageView musicPicRes;
 
         public ViewHolder(View itemView) {
@@ -110,13 +114,7 @@ public class musicAdapter extends RecyclerView.Adapter<musicAdapter.ViewHolder> 
             desc = itemView.findViewById(R.id.description);
             likes = itemView.findViewById(R.id.likes);
             musicPicRes = itemView.findViewById(R.id.itemImage);
-
-            itemView.findViewById(R.id.listenbutton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    toMusic(musicName.getText().toString());
-                }
-            });
+            listenbutton = itemView.findViewById(R.id.listenbutton);
         }
 
         @SuppressLint("SetTextI18n") //what moron designed this
@@ -125,6 +123,12 @@ public class musicAdapter extends RecyclerView.Adapter<musicAdapter.ViewHolder> 
             desc.setText("Description: "+String.valueOf(newMusic.getDesc()));
             likes.setText("Likes: "+String.valueOf(newMusic.getLikes()));
             Log.i("adapter", "downloading "+newMusic.getMusicPicRes());
+            listenbutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    toMusic(newMusic);
+                }
+            });
             storageReference.child(newMusic.getMusicPicRes()).getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
                 public void onComplete(@NonNull Task<Uri> task) {
@@ -140,10 +144,16 @@ public class musicAdapter extends RecyclerView.Adapter<musicAdapter.ViewHolder> 
         }
     }
 
-    private void toMusic(String neededMusic) {
+    private void toMusic(music neededMusic) {
         Log.d("Activity", "pressed buton");
         Intent intent = new Intent(ncontext, ListenToMusic.class);
-        intent.putExtra("MusicID", neededMusic);
+        intent.putExtra("musicRes", neededMusic.getMusicSourceRes());
+        intent.putExtra("musicPicRes", neededMusic.getMusicPicRes());
+        intent.putExtra("desc", neededMusic.getDesc());
+        intent.putExtra("author", neededMusic.getAuthor());
+        intent.putExtra("musicName", neededMusic.getMusicName());
+        intent.putExtra("likes", neededMusic.getLikes());
+        intent.putExtra("listenCount", neededMusic.getListenCount());
         ncontext.startActivity(intent);
     }
 }

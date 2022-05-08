@@ -40,6 +40,7 @@ public class Feed extends AppCompatActivity {
     private RecyclerView recView;
     private ArrayList<music> musicList;
     private musicAdapter adapter;
+    private NotifHandler notifHandler;
     private int gridNum = 1;
     private int limit = 10;
     @Override
@@ -53,6 +54,7 @@ public class Feed extends AppCompatActivity {
             Log.e(LOG_TAG, "User not found, redirecting to login");
             finish();
         }
+        notifHandler = new NotifHandler(this);
         recView = findViewById(R.id.recyclerView);
         recView.setLayoutManager(new GridLayoutManager(this, gridNum));
         musicList = new ArrayList<>();
@@ -60,30 +62,10 @@ public class Feed extends AppCompatActivity {
         recView.setAdapter(adapter);
         store = FirebaseFirestore.getInstance();
         coll = store.collection("musics");
-        query();
         adapter.getFilter().filter("");
         Log.i(LOG_TAG, "list is "+musicList.size());
     }
 
-    /**
-     * {
-     *                 Log.i(LOG_TAG, "Length of query: "+queryDocumentSnapshots.size());
-     *                 List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments().;
-     *                 Log.i(LOG_TAG, documents.size() +" different query");
-     *                 for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-     *                     Log.i(LOG_TAG, "in document");
-     *                     try{
-     *                         Log.i(LOG_TAG, "adding music");
-     *                         music mus = document.toObject(music.class);
-     *                         musicList.add(mus);
-     *                     }
-     *                     catch (Exception e){
-     *                         Log.e(LOG_TAG, e.getMessage());
-     *                     }
-     *                 }
-     *                 adapter.notifyDataSetChanged();
-     *             }
-     */
     private void query(){
         Log.i(LOG_TAG, "query called");
         musicList.clear();
@@ -108,11 +90,6 @@ public class Feed extends AppCompatActivity {
                 Log.e(LOG_TAG, "asdf: "+e.getMessage());
             }
         });
-
-    }
-
-    private void initialize() {
-        String[] items;
 
     }
 
@@ -159,5 +136,14 @@ public class Feed extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        musicList.clear();
+        notifHandler.cancel();
+        adapter.notifyDataSetChanged();
+        query();
     }
 }

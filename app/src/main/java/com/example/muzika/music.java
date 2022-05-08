@@ -1,9 +1,10 @@
 package com.example.muzika;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 public class music {
-    private String ID;
     private String musicName;
     private String author;
     private String desc;
@@ -12,7 +13,9 @@ public class music {
     private String musicSourceRes;
     private String musicPicRes;
 
-    public music(){}
+    public music() {
+    }
+
     public music(String musicName, String author, String desc, String musicSourceRes, String musicPicRes) {
         this.musicName = musicName;
         this.author = author;
@@ -79,12 +82,17 @@ public class music {
         this.listenCount = listenCount;
     }
 
-    public String _getID() {
-        return ID;
-    }
+    /**
+     * private String musicName;
+     * private String author;
+     * private String desc;
+     * private int likes;
+     * private int listenCount;
+     * private String musicSourceRes;
+     * private String musicPicRes;
+     *
+     * @return
+     */
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
 }
 
