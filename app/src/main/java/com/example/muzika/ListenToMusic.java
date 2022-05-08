@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,6 +53,7 @@ public class ListenToMusic extends AppCompatActivity {
     boolean playing = false;
     private String mus = "";
     boolean likedRightNow = false;
+    Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,7 @@ public class ListenToMusic extends AppCompatActivity {
         mp = new MediaPlayer();
         imageView = findViewById(R.id.imageView);
         firestore = FirebaseFirestore.getInstance();
+        animation = AnimationUtils.loadAnimation(this, R.anim.musicblinking);
         collectionReference = firestore.collection("musics");
         try { //wow this is so stupid
             Bundle bundle = getIntent().getExtras();
@@ -84,7 +88,6 @@ public class ListenToMusic extends AppCompatActivity {
                 Log.i("Listen", "AAAAAAAAAAA" + task.getResult().size());
                 for (QueryDocumentSnapshot document : task.getResult()) {
                     Log.i("Listen", document.get("author").toString());
-                    Log.i("Listen", "KURVA ÉLET " + document.get("desc"));
                     Muzika = document.toObject(music.class);
                     Muzika.setListenCount(Muzika.getListenCount() + 1);
                     String id = document.getId();
@@ -145,8 +148,10 @@ public class ListenToMusic extends AppCompatActivity {
         });
     }
 
+
     public void PlaySong(View view) {
         if (playing) {
+            imageView.clearAnimation();
             mp.stop();
             try {
                 mp.prepare();
@@ -155,6 +160,7 @@ public class ListenToMusic extends AppCompatActivity {
             }
             playing = false;
         } else {
+            imageView.startAnimation(animation);
             mp.start();
             playing = true;
         }
@@ -173,8 +179,6 @@ public class ListenToMusic extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.backTo:
                 finish();
-                return true;
-            case R.id.modifysong:
                 return true;
             case R.id.deletesong:
                 deleteCurrentSong();
@@ -225,7 +229,6 @@ public class ListenToMusic extends AppCompatActivity {
                     Log.i("Listen", "AAAAAAAAAAA" + task.getResult().size());
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.i("Listen", document.get("author").toString());
-                        Log.i("Listen", "KURVA ÉLET " + document.get("desc"));
                         Muzika = document.toObject(music.class);
                         Muzika.setLikes(Muzika.getLikes() + 1);
                         String id = document.getId();

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListenToMusic">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="183dp"
+        android:layout_height="161dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/title_here"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/LikeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="55dp"
+        android:onClick="LikeSonghaha"
+        android:text="@string/like" />
+
+    <Button
+        android:id="@+id/PlayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/play"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+
+
+        android:onClick="PlaySong"
+         />
+
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/imageView"
+        />
+
+    <TextView
+        android:id="@+id/DescriptionBox"
+        android:layout_width="250dp"
+        android:layout_height="132dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/placeholder_description_here"
+        android:layout_alignTop="@id/Description"
+        android:layout_alignParentRight="true"
+     />
+
+    <TextView
+        android:id="@+id/AuthorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author"
+        android:layout_marginTop="25dp"
+        android:layout_toLeftOf="@id/imageView"/>
+
+    <TextView
+        android:id="@+id/AuthorFill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_alignRight="@id/AuthorTitle"
+        android:text="@string/authorherepls"
+        android:layout_alignTop="@id/AuthorTitle" />
+
+    <TextView
+        android:id="@+id/ListenCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_toLeftOf="@id/imageView"
+        android:layout_alignTop="@id/AuthorFill"
+        android:text="@string/phlistenshere"
+        />
+
+    <TextView
+        android:id="@+id/LikesCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ListenCount"
+        android:layout_marginTop="25dp"
+        android:layout_toLeftOf="@id/imageView"
+        android:text="@string/phlikeshere" />
+</RelativeLayout>

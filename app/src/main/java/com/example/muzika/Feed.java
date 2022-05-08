@@ -126,9 +126,6 @@ public class Feed extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 return true;
-            case R.id.settings_button:
-                finish();
-                return true;
             case R.id.newSong:
                 toNewSong();
                 finish();

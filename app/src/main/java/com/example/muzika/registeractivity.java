@@ -73,11 +73,16 @@ public class registeractivity extends AppCompatActivity {
         Log.i(LOG_TAG, radioButton.getText().toString());
         if (radioButton.getText().toString().equals("Listener")) role = "Listener";
         else role = "Creator";
-        if (!password.equals(passwordConfirm)) {
-            Log.e(LOG_TAG, "Passwords don't match");
-
+        if(userName.trim().equals("") || emailText.trim().equals("") || password.trim().equals("") || passwordConfirm.trim().equals("")){
+            Toast.makeText(this, "Fill those areas in at least, please", Toast.LENGTH_LONG).show();
             return;
         }
+        if (!password.equals(passwordConfirm)) {
+            Log.e(LOG_TAG, "Passwords don't match");
+            Toast.makeText(this, "Your passwords don't match", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Log.i(LOG_TAG, "Registering user " + userName + "...");
 
         collectionReference.add(new User(userName, emailText, role)).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

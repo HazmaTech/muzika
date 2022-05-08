@@ -5,12 +5,16 @@
       <map>
         <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
         <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/drawable/circle.xml" value="0.3675" />
-        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout-land/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout/activity_feed.xml" value="0.33" />
+        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout-land/activity_listen_to_music.xml" value="0.2" />
+        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout-land/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout-land/activity_music_add.xml" value="0.22" />
+        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout-land/activity_registeractivity.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout-land/song_list_element.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout/activity_feed.xml" value="0.14" />
         <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout/activity_listen_to_music.xml" value="0.33" />
         <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout/activity_music_add.xml" value="0.25" />
-        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout/activity_registeractivity.xml" value="0.33" />
+        <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout/activity_registeractivity.xml" value="0.22" />
         <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/layout/song_list_element.xml" value="0.5" />
         <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/menu/backbutton.xml" value="0.28266913809082483" />
         <entry key="..\:/Users/xxgam/AndroidStudioProjects/muzika/app/src/main/res/menu/musiclistmenu.xml" value="0.33" />

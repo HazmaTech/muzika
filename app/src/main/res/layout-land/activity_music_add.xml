@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    tools:context=".musicAdd">
+
+    <TextView
+        android:id="@+id/titleAddMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:text="@string/upload_your_music"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/titlesongname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/titleAddMenu"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:paddingTop="20dp"
+        android:text="@string/addsongname" />
+
+    <EditText
+        android:id="@+id/songname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/titlesongname"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="140dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/titleAddDesc"
+        android:layout_alignBottom="@id/descriptionSong"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="120dp"
+
+        android:paddingTop="20dp"
+        android:text="@string/add_song_description" />
+
+    <EditText
+        android:id="@+id/descriptionSong"
+        android:layout_width="315dp"
+        android:layout_height="113dp"
+        android:layout_alignBottom="@id/mp3imageupload"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="30dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/songpicbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignBottom="@id/mp3uploadbutton"
+        android:layout_marginBottom="60dp"
+        android:text="@string/song_pic"
+        android:onClick="SelectPicture"
+         />
+
+    <TextView
+        android:id="@+id/mp3imageupload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/songpicbutton"
+        android:layout_alignBottom="@id/mp3url"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="60dp"
+        android:ems="10"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@+id/songpicbutton"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionSong" />
+
+    <Button
+        android:id="@+id/mp3uploadbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_alignBottom="@id/submit"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentLeft="true"
+        android:text="@string/song_mp3"
+        android:onClick="selectMp3"
+         />
+
+    <TextView
+        android:id="@+id/mp3url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text=""
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="200dp"
+        android:layout_alignLeft="@id/mp3uploadbutton"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:layout_alignBottom="@id/submit"
+        />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:ellipsize="middle"
+        android:text="@string/submit"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="submitSong"
+
+        app:layout_constraintTop_toBottomOf="@+id/mp3uploadbutton" />
+
+</RelativeLayout>

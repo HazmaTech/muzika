@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -65,6 +67,11 @@ public class musicAdapter extends RecyclerView.Adapter<musicAdapter.ViewHolder> 
         music newMusic = musicDataFiltered.get(position);
         Log.i("adapter", "position of item is "+ position);
         holder.bindTo(newMusic);
+        if(holder.getAdapterPosition() > lastpos) {
+            Animation animation = AnimationUtils.loadAnimation(ncontext, R.anim.slidefade);
+            holder.itemView.startAnimation(animation);
+            lastpos = holder.getAdapterPosition();
+        }
     }
 
     @Override
