@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "61278333451",
+    "project_id": "muzikaandroidprojekt",
+    "storage_bucket": "muzikaandroidprojekt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61278333451:android:ce2f5bc7a00b5be5cbf50e",
+        "android_client_info": {
+          "package_name": "com.example.muzika"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61278333451-jolsq6rnauq814f5gqkbrf03icg4s27q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muzika",
+            "certificate_hash": "13b77bde994b927f2212e38d53733520233f5416"
+          }
+        },
+        {
+          "client_id": "61278333451-tjddc3hf703ujnds0rhaig319qsd3qru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL3APldZRbJFF1SfxRGHmA6jappNg3NPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61278333451-tjddc3hf703ujnds0rhaig319qsd3qru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/searchbar"
+        android:title="@string/searchbar"
+        android:icon="@drawable/ic_baseline_search_24"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always"
+    />
+    <item
+        android:id="@+id/log_out_button"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/logout"
+        android:orderInCategory="3"
+    />
+    <item
+        android:id="@+id/newSong"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_upload"
+        android:title="@string/new_song"
+        android:orderInCategory="1"
+        />
+    <item
+        android:id="@+id/settings_button"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings"
+        android:orderInCategory="2"
+    />
+</menu>
